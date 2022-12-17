@@ -23,7 +23,41 @@
             <input class="button" style="color: mediumvioletred;"  type="Submit" value="Submit">
         </div>
     </form>
+    <div id="output">
+
+    </div>
     <ul class="ul"></ul>
-    <script src="newpr.js"></script>
+    <script>
+        var form=document.getElementById('form');
+        form.addEventListener('submit',storeitems)
+        var userdetails=[];
+        function storeitems(e){
+            e.preventDefault();
+            let userna=document.getElementById('name1').value;
+            let emaili=document.getElementById('email').value;
+            let obj={
+                username : userna,
+                emailid : emaili
+            }
+            localStorage.setItem(obj.emailid,JSON.stringify(obj));
+            if(localStorage.getItem(obj.emailid)){
+            var output=document.getElementById('output');
+            var objde=JSON.parse(localStorage.getItem(obj.emailid))
+            output.innerHTML="";
+            userdetails.push(objde);
+            for(let i=0;i<userdetails.length;i++){
+                console.log(userdetails[i].username)
+                output.innerHTML += `
+                <div>
+                <h4>${userdetails[i].username}</h4>
+                <h4>${userdetails[i].emailid}</h4>
+                </div>
+                `;
+            }
+                  
+            }            
+            }                             
+         
+    </script>
 </body>
 </html>
