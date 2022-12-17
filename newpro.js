@@ -6,6 +6,6 @@ function onsubmit(e){
   e.preventDefault();
   localStorage.setItem('username',(username.value))
   localStorage.setItem('email',(email.value))
-  console.log(localStorage.getItem(username));
-  console.log(localStorage.getItem(email));
+  localStorage.getItem(username)
+  localStorage.getItem(email)
 }
