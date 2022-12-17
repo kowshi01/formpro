@@ -1,0 +1,23 @@
+body
+{
+    color: blueviolet;
+    text-align: center;
+}
+h4
+{
+    color: brown;
+}
+p
+{
+    color: rgba(21, 231, 214, 0.397);
+}
+label
+{
+    color: rgb(231, 13, 68);
+}
+button
+{
+    background-color: rgb(184, 70, 184);
+    color: maroon;
+}
+
