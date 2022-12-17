@@ -1,11 +1,10 @@
-const Myform=document.querySelector('#form');
-const username=document.querySelector('#name1');
-const email=document.querySelector('#email');
-Myform.addEventListener('submit' , onsubmit);
-function onsubmit(e){
-  e.preventDefault();
-  localStorage.setItem('username',(username.value))
-  localStorage.setItem('email',(email.value))
-  localStorage.getItem(username)
-  localStorage.getItem(email)
-}
+
+    let myobj={
+        name1 : 'abc',
+        emailid : 'abc@gmail.com'
+     }
+  
+  let myobj_ser=JSON.stringify(myobj);
+  localStorage.setItem("MyObj",myobj_ser);
+  let myobj_deser=JSON.parse(localStorage.getItem("MyObj"));
+  console.log(myobj_deser);
