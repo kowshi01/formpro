@@ -1,43 +1,36 @@
-//Global scope, class, object, method, function, prototype.
-//Global scope
-/*this.b='sunflower'
-console.log(b);
-console.log(window.b)
-this.a={
-    flower : 'rose'
-};
-console.log(this.a.flower);*/
-//object and method
-/*let a={
-    flower : 'lotus',
-    b(){
-        console.log(`Flower = ${this.flower}`);
+class Student{
+    static numstud=0;
+    constructor(na,ag,phno,mk){
+    this.name=na;
+    this.age=ag;
+    this.phonenumber=phno;
+    this.mark=mk;
+    Student.numstud++;
     }
-};
-a.b();*/
-//function
-/*this.flower='sunflower'
-const a=function(flower2){
-    console.log(`Flower = ${this.flower} flower2 = ${flower2}`);
-}
-a.call(this,'lotus')*/
-//prototype
-/*const a=function(flower){
-    this.flower1 = flower
-};
-a.prototype.b=function(flower2){
-    console.log(`Flower = ${this.flower1} , flower2 = ${flower2}`);
-}
-const flowers=new a('Lotus');
-flowers.b('rose')*/
-//class
-/*class Flower{
-    constructor(flower){
-        this.flower1 = flower
+    
+   result=function(){
+        if(this.mark>40){
+            console.log('eligible');
+        }else{
+            console.log('not eligible');
+        }
     }
-    b(flower2){
-        console.log(`Flower1 = ${this.flower1} , flower2 = ${flower2}`);
+    numstudent=function(){
+        console.log(Student.numstud);
     }
 }
-const flowers=new Flower('Lotus');
-flowers.b('rose')*/
+
+const stud1=new Student('abc',11,949553,90);
+stud1.result();
+const stud2=new Student('cde',12,846167,40);
+stud2.result();
+const stud3=new Student('efg',13,434667,70);
+stud3.result();
+const stud4=new Student('hij',14,568532,30);
+stud4.result();
+const stud5=new Student('klm',15,357889,80);
+stud5.result();
+stud5.numstudent();
+
+
+
