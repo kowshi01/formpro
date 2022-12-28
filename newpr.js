@@ -1,5 +1,6 @@
 //call apply bind
 
+
 /*let obj={
     fname : 'ABC',
     lname : 'DEF'
