@@ -27,47 +27,7 @@
 
     </div>
     <ul class="ul"></ul>
-    <script>
-        var form=document.getElementById('form');
-        form.addEventListener('submit',storeitems)
-        function storeitems(e){
-            e.preventDefault();
-            let userna=document.getElementById('name1').value;
-            let emaili=document.getElementById('email').value;
-            let obj={
-                username : userna,
-                emailid : emaili
-            }
-            localStorage.setItem(obj.emailid,JSON.stringify(obj));
-            let myobj=JSON.parse(localStorage.getItem(obj.emailid));
-            newUser(myobj);
-         }            
-     function newUser(nuser){
-       /* if(localStorage.getItem(nuser.emailid)!==null){
-            removeFromScreen(nuser.email);
-        }*/
-        let parentNode=document.getElementById('output');
-        let childHTML=`<h4 id='heading'> ${nuser.username} - ${nuser.emailid} <button onclick=edituser('${nuser.username},${nuser.emailid}')>Edit</button>
-            <button onclick=deluser('${nuser.emailid}')>Delete</button></h4>`;
-        parentNode.innerHTML=parentNode.innerHTML+childHTML;
-     }
-        
-     function edituser(usern,mailid){
-        document.getElementById('name1').value=usern;
-        document.getElementById('email').value=mailid;
-        deluser(mailid);
-     }  
-     function deluser(mailid) {
-        localStorage.removeItem(mailid);
-        removeFromScreen(mailid);
-     }  
-    function removeFromScreen(mailid){
-        const parentNodee=document.getElementById('output');
-        const childNodee=document.getElementById('heading');
-        if(childNodee){
-        parentNodee.removeChild(childNodee); 
-        }
-     }
+    <script src="newpr.js">
         </script>
     </body>
 </html>
