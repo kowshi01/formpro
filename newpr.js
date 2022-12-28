@@ -12,16 +12,13 @@ class Student{
         if(this.mark>40){
             let resul =(ag) => {
                 if(ag>11){
-                    return true;
+                    console.log(`${this.name}`);
                 }
                 else{
                     return false;
                 }
             }
             resul(this.age);
-            if(true){
-                console.log(`${this.name}`);
-            }
             
         }else{
             console.log('not eligible');
