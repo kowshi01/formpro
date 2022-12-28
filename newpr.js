@@ -15,7 +15,7 @@ class Student{
                     console.log(`${this.name}`);
                 }
                 else{
-                    return false;
+                    console.log('not eligible');
                 }
             }
             resul(this.age);
