@@ -10,7 +10,19 @@ class Student{
     
    result=function(){
         if(this.mark>40){
-            console.log('eligible');
+            let resul =(ag) => {
+                if(ag>11){
+                    return true;
+                }
+                else{
+                    return false;
+                }
+            }
+            resul(this.age);
+            if(true){
+                console.log(`${this.name}`);
+            }
+            
         }else{
             console.log('not eligible');
         }
@@ -31,6 +43,3 @@ stud4.result();
 const stud5=new Student('klm',15,357889,80);
 stud5.result();
 stud5.numstudent();
-
-
-
