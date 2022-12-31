@@ -1,42 +1,40 @@
-class Student{
-    static numstud=0;
-    constructor(na,ag,phno,mk){
-    this.name=na;
-    this.age=ag;
-    this.phonenumber=phno;
-    this.mark=mk;
-    Student.numstud++;
-    }
-    
-   result=function(){
-        if(this.mark>40){
-            let resul =(ag) => {
-                if(ag>11){
-                    console.log(`${this.name}`);
-                }
-                else{
-                    console.log('not eligible');
-                }
-            }
-            resul(this.age);
-            
-        }else{
-            console.log('not eligible');
-        }
-    }
-    numstudent=function(){
-        console.log(Student.numstud);
-    }
-}
+const Myform=document.getElementById('form');
+Myform.addEventListener('submit',onsubmit)
 
-const stud1=new Student('abc',11,949553,90);
-stud1.result();
-const stud2=new Student('cde',12,846167,40);
-stud2.result();
-const stud3=new Student('efg',13,434667,70);
-stud3.result();
-const stud4=new Student('hij',14,568532,30);
-stud4.result();
-const stud5=new Student('klm',15,357889,80);
-stud5.result();
-stud5.numstudent();
+function onsubmit(e){
+    e.preventDefault();
+    const amount=document.getElementById('Eamount').value;
+    const des=document.getElementById('des').value;
+    const cat=document.getElementById('category').value;
+    let obj={
+        Eamount : amount,
+        Edes : des,
+        Ecat : cat
+    }
+   localStorage.setItem(obj.Edes,JSON.stringify(obj));   
+   var objde=JSON.parse(localStorage.getItem(obj.Edes));
+   newuser(objde);
+  }
+  function newuser(nuser){
+       let parentNode=document.getElementById('output');
+       let childHTML=`<h4 id='heading'> ${nuser.Eamount} - ${nuser.Edes} - ${nuser.Ecat}<button onclick=edituser('${nuser.Eamount},${nuser.Edes},${nuser.Ecat}')>Edit</button>
+           <button onclick=deluser('${nuser.Edes}')>Delete</button></h4>`;
+       parentNode.innerHTML=parentNode.innerHTML+childHTML;
+    }
+    function edituser(amount,des,cat){
+      amount=document.getElementById('Eamount').value;
+      des=document.getElementById('des').value;
+      cat=document.getElementById('category').value;
+      deluser(des);
+   }  
+   function deluser(des) {
+      localStorage.removeItem(des);
+      removeFromScreen(des);
+   }  
+  function removeFromScreen(des){
+      const parentNodee=document.getElementById('output');
+      const childNodee=document.getElementById('heading');
+      if(childNodee){
+      parentNodee.removeChild(childNodee); 
+      }
+   }
