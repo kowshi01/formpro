@@ -4,6 +4,11 @@ const post=[
     {title : 'Post2'},
     {title : 'Post3'}
 ];
+const newPost=[
+    {title : 'Post5'},
+    {title : 'Post6'},
+    {title : 'Post7'}
+]
 function getPost(){
     setTimeout(() => {
     let output='';
@@ -46,7 +51,17 @@ function delPost(){
             if(post.length>0){
                 resolve(post.pop());
             }else{
-                reject("Error : Array is empty now");
+                
+                    setTimeout(() => {
+                        let output='';
+                        for(let i=0;i<newPost.length;i++){
+                            output+=`<li>${newPost[i].title}</li>`;
+                            updateLastUserActivityTime(new Date().getTime());
+                        }
+                        
+                        document.body.innerHTML=output;
+                        }, 1000);
+                
             }
         },1000);
     });
