@@ -46,7 +46,7 @@ function updateLastUserActivityTime(a){
 });
 }
 function delPost(){
-    return new Promise((resolve,reject)=>{
+    return new Promise((resolve)=>{
         setTimeout(()=>{
             if(post.length>0){
                 resolve(post.pop());
